@@ -14,6 +14,10 @@ $(document).ready(function(){
             slideLeft.removeClass("slide-out-left").addClass( "slide-in-left" );
             slideRight.removeClass("slide-out-right").addClass( "slide-in-right" );
         }
+        else{
+            slideLeft.addClass("slide-out-left");
+            slideRight.addClass("slide-out-right");
+        }
     });
   
   });

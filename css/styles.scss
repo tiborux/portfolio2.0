@@ -373,22 +373,32 @@ a:hover {
     50%{-webkit-transform: translateX(0%);} 
 
 }
+@-webkit-keyframes slide-out-left{ 
+    0% {-webkit-transform: translateX(0%);} 
+    50%{-webkit-transform: t translateX(-100%)}; 
+
+}
 .slide-in-left {
     -webkit-animation: slide-in-left 1.5s ease-in-out both;
 }
 .slide-out-left{
-    transform: translateX(-100%);
+    -webkit-animation: slide-out-left 1.5s ease-in-out both;
 }
 @-webkit-keyframes slide-in-right { 
     0% {-webkit-transform: translateX(100%);} 
     50%{-webkit-transform: translateX(0%);} 
 
 }
+@-webkit-keyframes slide-out-right{ 
+    0% {-webkit-transform: translateX(0%);} 
+    50%{-webkit-transform: t translateX(100%)}; 
+
+}
 .slide-in-right{
     -webkit-animation: slide-in-right 1.5s ease-in-out both;
 }
 .slide-out-right{
-    transform: translateX(100%);
+    -webkit-animation: slide-out-right 1.5s ease-in-out both;
 }
 
 
