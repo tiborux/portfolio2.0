@@ -10,7 +10,7 @@ $(document).ready(function(){
         hH = slideLeft.outerHeight(),
         wheight = $(window).height(),
         scroll = $(this).scrollTop();
-        if (scroll > (hT + hH - wheight)) {
+        if (scroll > (hT - wheight)) {
             slideLeft.removeClass("slide-out-left").addClass( "slide-in-left" );
             slideRight.removeClass("slide-out-right").addClass( "slide-in-right" );
         }

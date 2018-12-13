@@ -414,7 +414,7 @@ a:hover {
 }
 
 .slide-in-left {
-  -webkit-animation: slide-in-left .7s ease-in-out both;
+  -webkit-animation: slide-in-left 1.5s ease-in-out both;
 }
 
 .slide-out-left {
@@ -432,7 +432,7 @@ a:hover {
 }
 
 .slide-in-right {
-  -webkit-animation: slide-in-right .7s ease-in-out both;
+  -webkit-animation: slide-in-right 1.5s ease-in-out both;
 }
 
 .slide-out-right {
