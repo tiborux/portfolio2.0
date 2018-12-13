@@ -4,6 +4,33 @@ body, h1, h2, h3, h4, h5, h6, p, blockquote, pre, hr, dl, dd, ol, ul, figure {
     padding: 0;
 }
 
+/** Colors */
+$yellow:  rgb(254, 215, 102);
+$grey: #f5f5f5;
+$black: #000;
+
+// Elevation
+@mixin elevation($level) {
+    @if $level == 1 {
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    }
+  
+    @else if $level == 2 {
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    }
+  
+    @else if $level == 3 {
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    }
+  
+    @else if $level == 4 {
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    }
+  
+    @else if $level == 5 {
+      box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+    }
+  }
 /** Basic styling */
 body {
     font: 400 16px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -98,13 +125,13 @@ a:hover {
             font-weight: bold;
             text-decoration: none;
             width: 100px;
-            border: solid rgb(254, 215, 102) 2px;
+            border: solid 2px;
             padding: 10px 25px;
             color: white;
 
             &:hover {
                 color: black;
-                background: rgb(254, 215, 102);
+                background:$yellow;
                 text-decoration: none;
                 font-weight: 1000;
             }
@@ -171,15 +198,23 @@ a:hover {
     &__column__one {
         grid-area: item1;
         align-self: center;
-        background: rgb(254, 215, 102);
+        background: $grey;
         text-align: center;
+        margin: 50px;
+        box-sizing: border-box;
+        border-radius: 12px;
+        @include elevation(3);
     }
 
     &__column__two {
         grid-area: item2;
         align-self: center;
-        background: rgb(254, 215, 102);
+        background: $grey;
         text-align: center;
+        margin: 50px;
+        box-sizing: border-box;
+        border-radius: 12px;
+        @include elevation(3);
     }
 
     &__item__photo {
@@ -195,8 +230,8 @@ a:hover {
     height: 3px;
     border: none;
     margin-bottom: 20px;
-    color: rgb(254, 215, 102);
-    background-color: rgb(254, 215, 102);
+    color: $yellow;
+    background-color: $yellow;
 }
 
 .aptitudes {
@@ -234,19 +269,19 @@ a:hover {
     &__column {
         &__one {
             grid-area: item1;
-            background: rgb(254, 215, 102);
+            background:  rgb(254, 215, 102);
             text-align: center;
         }
 
         &__two {
             grid-area: item2;
-            background: rgb(254, 215, 102);
+            background:  rgb(254, 215, 102);
             text-align: center;
         }
 
         &__three {
             grid-area: item3;
-            background: rgb(254, 215, 102);
+            background:  rgb(254, 215, 102);
             text-align: center;
         }
     }
@@ -357,3 +392,5 @@ a:hover {
 }
 
 
+
+  
