@@ -98,13 +98,13 @@ a:hover {
 
             & > span:first-child {
                 position: relative;
-                animation: moveName 3s;
+                animation: moveName 1s;
                 color: $yellow;
             }
 
             & > span:nth-child(2) {
                 position: relative;
-                animation: moveSurName 3s;
+                animation: moveSurName 1s;
                 color: white;
             }
         }
@@ -131,7 +131,7 @@ a:hover {
         color: white;
         position: relative;
         top:-10%;
-        left:12 %;
+        left:12%;
 
         &:hover {
             color: black;
@@ -164,23 +164,31 @@ a:hover {
         &__line {
             position: relative;
             background-color: $yellow;
-            box-sizing: border-box;
-            border-radius: 12px;
+      
             width: 170px;
             height: 20px;
 
             &__text {
                 position: absolute;
-                top: -110%;
+                top: -80%;
                 left: 50%;
+                
                 transform: translateX(-50%);
                 font-weight: 400;
                 font-size: 18px;
-    
                 letter-spacing: .05em;
                 color: $grey;
                 white-space: nowrap;
+                &__shadow{
+                    position: absolute;
+                    top: -80%;
+                    left: 50%;
+                    background-color: $black;
+                 border-radius:50%;
+                
+                }
             }
+            
         }
 
         &__thin {
@@ -386,7 +394,7 @@ a:hover {
 
 @keyframes moveSurName {
     from {
-        top: 80px;
+        top: 100px;
     }
 
     to {
@@ -396,7 +404,7 @@ a:hover {
 
 @keyframes moveName {
     from {
-        top: -80px;
+        top: -100px;
     }
 
     to {
