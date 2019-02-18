@@ -9,6 +9,9 @@ $yellow: rgb(254, 215, 102);
 $grey: #f5f5f5;
 $black: #000;
 
+/** Texts */
+$text-intro: "Montserrat", sans-serif;
+
 // Elevation
 @mixin elevation($level) {
     @if $level == 1 {
@@ -32,10 +35,6 @@ $black: #000;
 body {
     font: 400 16px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #111;
-    -webkit-text-size-adjust: 100%;
-    -webkit-font-feature-settings: "kern" 1;
-    -moz-font-feature-settings: "kern" 1;
-    -o-font-feature-settings: "kern" 1;
     font-feature-settings: "kern" 1;
     font-kerning: normal;
 }
@@ -81,10 +80,7 @@ a:hover {
 .intro {
     &__container {
         grid-area: text;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        bottom:50%;
+
         @media screen and (max-width: 400px) {
             font-size: 22px;
         }
@@ -92,7 +88,7 @@ a:hover {
         &__name {
             font-size: 70px;
             line-height: 1.21;
-            font-family: "Montserrat", sans-serif;
+            font-family: $text-intro;
             text-transform: uppercase;
             font-weight: 700;
 
@@ -117,6 +113,12 @@ a:hover {
             font-family: "Montserrat", serif;
             opacity: 0.75;
         }
+
+        &__text {
+            font-family: "Montserrat", serif;
+            font-size: 2em;
+            opacity: 0.75;
+        }
     }
 
     &__contact {
@@ -129,9 +131,6 @@ a:hover {
         border: solid 2px;
         padding: 10px 25px;
         color: white;
-        position: relative;
-        top:-10%;
-        left:12%;
 
         &:hover {
             color: black;
@@ -145,11 +144,11 @@ a:hover {
         color: white;
         grid-area: scroll;
         opacity: 1;
-        height: 70px;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: 0;
+        height: 150px;
+        bottom: -15%;
+        position: relative;
+        font-size: 1e   m;
+        animation: blink 2s infinite;
 
         a:visited {
             color: white;
@@ -161,42 +160,19 @@ a:hover {
             text-decoration: none;
         }
 
-        &__line {
-            position: relative;
-            background-color: $yellow;
-      
-            width: 170px;
-            height: 20px;
+        &__dots {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
 
-            &__text {
-                position: absolute;
-                top: -80%;
-                left: 50%;
-                
-                transform: translateX(-50%);
-                font-weight: 400;
-                font-size: 18px;
-                letter-spacing: .05em;
-                color: $grey;
-                white-space: nowrap;
-                &__shadow{
-                    position: absolute;
-                    top: -80%;
-                    left: 50%;
-                    background-color: $black;
-                 border-radius:50%;
-                
-                }
+            & > span {
+                height: 5px;
+                width: 5    px;
+                margin-top: 4px;
+                background-color: #bbb;
+                border-radius: 50%;
             }
-            
-        }
-
-        &__thin {
-            width: 2px;
-            height: 50px;
-            position: relative;
-            left: 50%;
-            background-color: $yellow;
         }
     }
 }
@@ -316,23 +292,73 @@ a:hover {
     &__column {
         &__one {
             grid-area: item1;
-            background: rgb(254, 215, 102);
+            //background: rgb(254, 215, 102);
             text-align: center;
         }
 
         &__two {
             grid-area: item2;
-            background: rgb(254, 215, 102);
+           // background: rgb(254, 215, 102);
             text-align: center;
         }
 
         &__three {
             grid-area: item3;
-            background: rgb(254, 215, 102);
+          //  background: rgb(254, 215, 102);
             text-align: center;
         }
     }
 
+    &__item__photo {
+        max-height: 250px;
+        max-width: 70%;
+    }
+}
+
+/* EXPERIENCE */
+
+.experience {
+    height: 100vh;
+    background: $yellow;
+    color: #FFF;
+    position: relative;
+    display: grid;
+    grid-template: "header header""item1 item2""item3 item4";
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -60%;
+        left: 0;
+        right: 0;
+        height: 100%;
+        background: #FFF;
+        transform: skew(0deg, -22deg);
+    }
+    &__header {
+        grid-area: header;
+        text-align: center;
+        &__title {
+            text-align: center;
+            padding-top: 25px;
+            font-size: 40px;
+            font-family: "Montserrat", sans-serif;
+        }
+        & .separator{
+            background-color: $black;        }
+    }
+    &__column__one {
+        grid-area: item1;
+        align-self: center;
+        text-align: center;
+    }
+
+    &__column__two {
+        grid-area: item4;
+        align-self: center;
+        text-align: center;
+z-index: 1;
+    }
     &__item__photo {
         max-height: 250px;
         max-width: 70%;
@@ -392,6 +418,16 @@ a:hover {
 
 /* ANIMATIONS */
 
+@keyframes blink {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
 @keyframes moveSurName {
     from {
         top: 100px;
@@ -426,58 +462,58 @@ a:hover {
     }
 }
 
-@-webkit-keyframes slide-in-left {
+@keyframes slide-in-left {
     0% {
-        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
     }
 
     50% {
-        -webkit-transform: translateX(0%);
+        transform: translateX(0%);
     }
 }
 
-@-webkit-keyframes slide-out-left {
+@keyframes slide-out-left {
     0% {
-        -webkit-transform: translateX(0%);
+        transform: translateX(0%);
     }
 
     50% {
-        -webkit-transform: t translateX(-100%);
+        transform: t translateX(-100%);
     }
 }
 
 .slide-in-left {
-    -webkit-animation: slide-in-left 1.5s ease-in-out both;
+    animation: slide-in-left 1.5s ease-in-out both;
 }
 
 .slide-out-left {
-    -webkit-animation: slide-out-left 1.5s ease-in-out both;
+    animation: slide-out-left 1.5s ease-in-out both;
 }
 
-@-webkit-keyframes slide-in-right {
+@keyframes slide-in-right {
     0% {
-        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
     }
 
     50% {
-        -webkit-transform: translateX(0%);
+        transform: translateX(0%);
     }
 }
 
-@-webkit-keyframes slide-out-right {
+@keyframes slide-out-right {
     0% {
-        -webkit-transform: translateX(0%);
+        transform: translateX(0%);
     }
 
     50% {
-        -webkit-transform: t translateX(100%);
+        transform: t translateX(100%);
     }
 }
 
 .slide-in-right {
-    -webkit-animation: slide-in-right 1.5s ease-in-out both;
+    animation: slide-in-right 1.5s ease-in-out both;
 }
 
 .slide-out-right {
-    -webkit-animation: slide-out-right 1.5s ease-in-out both;
+    animation: slide-out-right 1.5s ease-in-out both;
 }
